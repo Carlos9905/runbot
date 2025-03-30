@@ -7,11 +7,11 @@
         <field name="name">Overrides List</field>
         <field name="model">res.partner.override</field>
         <field name="arch" type="xml">
-            <tree editable="bottom">
+            <list editable="bottom">
                 <field name="context"/>
                 <field name="repository_id"/>
                 <field name="partner_ids" widget="many2many_tags"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -24,12 +24,12 @@
         <field name="name">Review Rights</field>
         <field name="model">res.partner.review</field>
         <field name="arch" type="xml">
-            <tree editable="bottom">
+            <list editable="bottom">
                 <field name="repository_id"/>
                 <field name="partner_id"/>
                 <field name="review"/>
                 <field name="self_review"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -41,10 +41,10 @@
         <field name="name">Feedback Templates</field>
         <field name="model">runbot_merge.pull_requests.feedback.template</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="template"/>
                 <field name="help"/>
-            </tree>
+            </list>
         </field>
     </record>
     <record id="form_feedback_template" model="ir.ui.view">
@@ -71,10 +71,10 @@
         <field name="name">Events Sources List</field>
         <field name="model">runbot_merge.events_sources</field>
         <field name="arch" type="xml">
-            <tree editable="bottom">
+            <list editable="bottom">
                 <field name="repository"/>
                 <field name="secret"/>
-            </tree>
+            </list>
         </field>
     </record>
 

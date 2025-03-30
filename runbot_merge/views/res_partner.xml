@@ -20,13 +20,13 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_tree"/>
         <field name="arch" type="xml">
-            <xpath expr="//tree" position="replace">
-                <tree string="Contacts">
+            <xpath expr="//list" position="replace">
+                <list string="Contacts">
                     <field name="display_name" string="Name"/>
                     <field name="github_login"/>
                     <field name="review_rights" widget="many2many_tags"/>
                     <field name="user_id" invisible="1"/>
-                </tree>
+                </list>
             </xpath>
         </field>
     </record>
@@ -66,11 +66,11 @@
                                 trainings. Please check before giving r+ access.
                             </div>
                             <field colspan="2" name="review_rights" nolabel="1">
-                                <tree string="Review ACLs" editable="bottom">
+                                <list string="Review ACLs" editable="bottom">
                                     <field name="repository_id"/>
                                     <field name="review"/>
                                     <field name="self_review"/>
-                                </tree>
+                                </list>
                             </field>
                         </group>
                         <group colspan="2">
@@ -85,12 +85,12 @@
                     <group>
                         <group colspan="2" string="Delegate On">
                             <field name="delegate_reviewer" nolabel="1" colspan="2">
-                                <tree>
+                                <list>
                                     <field name="repository"/>
                                     <field name="number"/>
                                     <field name="target"/>
                                     <field name="state"/>
-                                </tree>
+                                </list>
                             </field>
                         </group>
                     </group>

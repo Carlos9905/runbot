@@ -6,8 +6,6 @@
     <field name="code">model._check_stagings(True)</field>
     <field name="interval_number">6</field>
     <field name="interval_type">hours</field>
-    <field name="numbercall">-1</field>
-    <field name="doall" eval="False"/>
     <field name="priority">30</field>
   </record>
   <record model="ir.cron" id="staging_cron">
@@ -17,8 +15,6 @@
     <field name="code">model._create_stagings(True)</field>
     <field name="interval_number">6</field>
     <field name="interval_type">hours</field>
-    <field name="numbercall">-1</field>
-    <field name="doall" eval="False"/>
     <field name="priority">40</field>
   </record>
   <record model="ir.cron" id="feedback_cron">
@@ -28,8 +24,6 @@
     <field name="code">model._send()</field>
     <field name="interval_number">6</field>
     <field name="interval_type">hours</field>
-    <field name="numbercall">-1</field>
-    <field name="doall" eval="False"/>
     <field name="priority">60</field>
   </record>
   <record model="ir.cron" id="labels_cron">
@@ -39,8 +33,6 @@
     <field name="code">model._send()</field>
     <field name="interval_number">10</field>
     <field name="interval_type">hours</field>
-    <field name="numbercall">-1</field>
-    <field name="doall" eval="False"/>
     <field name="priority">70</field>
   </record>
   <record model="ir.cron" id="fetch_prs_cron">
@@ -50,8 +42,6 @@
     <field name="code">model._check(True)</field>
     <field name="interval_number">6</field>
     <field name="interval_type">hours</field>
-    <field name="numbercall">-1</field>
-    <field name="doall" eval="False"/>
     <field name="priority">10</field>
   </record>
   <record model="ir.cron" id="check_linked_prs_status">
@@ -61,8 +51,6 @@
     <field name="code">model._check_linked_prs_statuses(True)</field>
     <field name="interval_number">1</field>
     <field name="interval_type">hours</field>
-    <field name="numbercall">-1</field>
-    <field name="doall" eval="False"/>
     <field name="priority">50</field>
   </record>
   <record model="ir.cron" id="process_updated_commits">
@@ -72,8 +60,6 @@
     <field name="code">model._notify()</field>
     <field name="interval_number">6</field>
     <field name="interval_type">hours</field>
-    <field name="numbercall">-1</field>
-    <field name="doall" eval="False"/>
     <field name="priority">20</field>
   </record>
 </odoo>

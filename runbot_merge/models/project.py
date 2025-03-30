@@ -13,6 +13,9 @@ _logger = logging.getLogger(__name__)
 class Project(models.Model):
     _name = _description = 'runbot_merge.project'
 
+    sequence = fields.Integer(
+        default=10, required=True, index=True,)
+    active = fields.Boolean(default=True)
     name = fields.Char(required=True, index=True)
     repo_ids = fields.One2many(
         'runbot_merge.repository', 'project_id',

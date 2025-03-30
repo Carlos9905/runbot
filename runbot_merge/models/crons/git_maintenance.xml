@@ -20,7 +20,5 @@
         <field name="nextcall" eval="datetime.utcnow() + relativedelta(weekday=6, hour=2, minute=0, second=0, microsecond=0)"/>
         <field name="interval_number">1</field>
         <field name="interval_type">weeks</field>
-        <field name="numbercall">-1</field>
-        <field name="doall" eval="False"/>
     </record>
 </odoo>

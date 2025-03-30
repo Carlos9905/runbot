@@ -28,11 +28,11 @@
                         </p>
                         <field name="release_label" colspan="2"/>
                         <field name="release_pr_ids" nolabel="1" colspan="2">
-                            <tree editable="bottom">
+                            <list editable="bottom">
                                 <field name="repository_id" options="{'no_create': True}"/>
                                 <field name="pr_id" options="{'no_create': True}"/>
                                 <field name="label"/>
-                            </tree>
+                            </list>
                         </field>
                     </group>
                     <group string="Bump">
@@ -45,11 +45,11 @@
                         </p>
                         <field name="bump_label" colspan="2"/>
                         <field name="bump_pr_ids" nolabel="1" colspan="2">
-                            <tree editable="bottom">
+                            <list editable="bottom">
                                 <field name="repository_id" options="{'no_create': True}"/>
                                 <field name="pr_id" options="{'no_create': True}"/>
                                 <field name="label"/>
-                            </tree>
+                            </list>
                         </field>
                     </group>
                     <footer>

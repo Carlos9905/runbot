@@ -24,14 +24,14 @@
         <field name="name">batches list</field>
         <field name="model">runbot_merge.batch</field>
         <field name="arch" type="xml">
-            <tree decoration-muted="not active">
+            <list decoration-muted="not active">
                 <field name="id"/>
                 <field name="name"/>
                 <field name="target"/>
                 <field name="prs" widget="many2many_tags"/>
                 <field name="blocked"/>
                 <field name="active" invisible="1"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -58,36 +58,36 @@
                     <group string="Pull Requests">
                         <group colspan="4">
                             <field colspan="2" name="all_prs" nolabel="1" readonly="1">
-                                <tree>
+                                <list>
                                     <button type="object" name="get_formview_action" icon="fa-external-link" title="open PR"/>
                                     <field name="display_name"/>
                                     <field name="repository"/>
                                     <field name="state"/>
-                                </tree>
+                                </list>
                             </field>
                         </group>
                     </group>
                     <group string="Genealogy">
                         <group colspan="4">
                             <field colspan="2" name="genealogy_ids" nolabel="1" readonly="1">
-                                <tree decoration-muted="id == parent.id">
+                                <list decoration-muted="id == parent.id">
                                     <button type="object" name="get_formview_action" icon="fa-external-link" title="open batch"/>
                                     <field name="name"/>
                                     <field name="target"/>
                                     <field name="all_prs" widget="many2many_tags"/>
-                                </tree>
+                                </list>
                             </field>
                         </group>
                     </group>
                     <group string="Stagings">
                         <group colspan="4">
                             <field colspan="2" name="staging_ids" nolabel="1" readonly="1">
-                                <tree>
+                                <list>
                                     <button type="object" name="get_formview_action" icon="fa-external-link" title="open staging"/>
                                     <field name="staged_at"/>
                                     <field name="state"/>
                                     <field name="reason"/>
-                                </tree>
+                                </list>
                             </field>
                         </group>
                     </group>

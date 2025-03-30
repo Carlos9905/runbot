@@ -1335,7 +1335,7 @@ For your own safety I've ignored *everything in your entire comment*.
 
         super()._auto_init()
         # incorrect index: unique(number, target, repository).
-        tools.drop_index(self.env.cr, 'runbot_merge_unique_pr_per_target', self._table)
+        tools.sql.drop_index(self.env.cr, 'runbot_merge_unique_pr_per_target', self._table)
         # correct index:
         tools.create_unique_index(
             self.env.cr, 'runbot_merge_unique_pr_per_repo', self._table, ['repository', 'number'])
@@ -1754,7 +1754,8 @@ class Tagging(models.Model):
     way of that. Instead, queue tagging changes into this table whose
     execution can be cron-driven.
     """
-    _name = _description = 'runbot_merge.pull_requests.tagging'
+    _name = 'runbot_merge.pull_requests.tagging'
+    _description = 'runbot_merge.pull_requests.tagging'
 
     repository = fields.Many2one('runbot_merge.repository', required=True)
     # store the PR number (not id) as we need a Tagging for PR objects
@@ -1825,7 +1826,8 @@ class Tagging(models.Model):
 class Feedback(models.Model):
     """ Queue of feedback comments to send to PR users
     """
-    _name = _description = 'runbot_merge.pull_requests.feedback'
+    _name = 'runbot_merge.pull_requests.feedback'
+    _description = 'runbot_merge.pull_requests.feedback'
 
     repository = fields.Many2one('runbot_merge.repository', required=True, index=True)
     # store the PR number (not id) as we may want to send feedback to PR
@@ -1970,7 +1972,8 @@ class Commit(models.Model):
     independent of everything else as commits can be created by
     statuses only, by PR pushes, by branch updates, ...
     """
-    _name = _description = 'runbot_merge.commit'
+    _name = 'runbot_merge.commit'
+    _description = 'runbot_merge.commit'
     _rec_name = 'sha'
 
     sha = fields.Char(required=True)
@@ -2106,7 +2109,7 @@ class Stagings(models.Model):
     @api.depends('target.name', 'state', 'reason')
     def _compute_display_name(self):
         for staging in self:
-            staging.display_name = "%d (%s, %s%s)" % (
+            staging.display_name = "%s (%s, %s%s)" % (
                 staging.id,
                 staging.target.name,
                 staging.state,
@@ -2539,7 +2542,8 @@ class Split(models.Model):
 
 
 class FetchJob(models.Model):
-    _name = _description = 'runbot_merge.fetch_job'
+    _name = 'runbot_merge.fetch_job'
+    _description = 'runbot_merge.fetch_job'
 
     active = fields.Boolean(default=True)
     repository = fields.Many2one('runbot_merge.repository', required=True)

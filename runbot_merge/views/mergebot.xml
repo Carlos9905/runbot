@@ -19,13 +19,13 @@
                     </group>
                     <separator string="Required Statuses"/>
                     <field name="status_ids">
-                        <tree editable="bottom">
+                        <list editable="bottom">
                             <button type="object" name="get_formview_action" icon="fa-external-link" title="open status"/>
                             <field name="context"/>
                             <field name="branch_filter"/>
                             <field name="prs"/>
                             <field name="stagings"/>
-                        </tree>
+                        </list>
                     </field>
                 </sheet>
             </form>
@@ -55,12 +55,12 @@
                         <field name="active_staging_id"/>
                     </group>
                     <field name="staging_ids" nolabel="1" readonly="1">
-                        <tree default_order="staged_at desc">
+                        <list default_order="staged_at desc">
                             <button type="object" name="get_formview_action" icon="fa-external-link" title="open staging"/>
                             <field name="id"/>
                             <field name="staged_at"/>
                             <field name="state"/>
-                        </tree>
+                        </list>
                     </field>
                 </sheet>
             </form>
@@ -70,13 +70,13 @@
     <record id="runbot_merge_action_projects" model="ir.actions.act_window">
         <field name="name">Projects</field>
         <field name="res_model">runbot_merge.project</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <record id="runbot_merge_action_prs" model="ir.actions.act_window">
         <field name="name">Pull Requests</field>
         <field name="res_model">runbot_merge.pull_requests</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="context">{'search_default_open': True}</field>
     </record>
     <record id="runbot_merge_search_prs" model="ir.ui.view">
@@ -108,7 +108,7 @@
         <field name="name">PR tree</field>
         <field name="model">runbot_merge.pull_requests</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="repository"/>
                 <field name="number"/>
                 <field name="target"/>
@@ -116,7 +116,7 @@
                 <field name="author"/>
                 <field name="reviewed_by"/>
                 <field name="write_date"/>
-            </tree>
+            </list>
         </field>
     </record>
     <record id="runbot_merge_form_prs" model="ir.ui.view">
@@ -203,11 +203,11 @@
                             <group string="Delegates">
                                 <group colspan="4">
                                     <field colspan="2" name="delegates" nolabel="1">
-                                        <tree>
+                                        <list>
                                             <button type="object" name="get_formview_action" icon="fa-external-link" title="open partner"/>
                                             <field name="name"/>
                                             <field name="github_login"/>
-                                        </tree>
+                                        </list>
                                     </field>
                                 </group>
                             </group>
@@ -216,12 +216,12 @@
                             <group>
                                 <group colspan="4">
                                     <field colspan="2" name="staging_ids" nolabel="1" readonly="1">
-                                        <tree>
+                                        <list>
                                             <button type="object" name="get_formview_action" icon="fa-external-link" title="open staging"/>
                                             <field name="staged_at"/>
                                             <field name="state"/>
                                             <field name="reason"/>
-                                        </tree>
+                                        </list>
                                     </field>
                                 </group>
                             </group>
@@ -238,11 +238,11 @@
                                 </group>
                               <group>
                                 <field colspan="2" name="forwardport_ids" nolabel="1" readonly="True">
-                                  <tree>
+                                  <list>
                                     <button type="object" name="get_formview_action" icon="fa-external-link" title="open PR"/>
                                     <field name="target" string="Branch"/>
                                     <field name="number"/>
-                                  </tree>
+                                  </list>
                                 </field>
                               </group>
                             </group>
@@ -255,10 +255,7 @@
                         </group>
                     </group>
                 </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers"/>
-                    <field name="message_ids" widget="mail_thread"/>
-                </div>
+                <chatter/>
             </form>
         </field>
     </record>
@@ -280,7 +277,7 @@
     <record id="runbot_merge_action_stagings" model="ir.actions.act_window">
         <field name="name">Stagings</field>
         <field name="res_model">runbot_merge.stagings</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="context">{'search_default_active': True, 'active_test': False}</field>
     </record>
     <record id="runbot_merge_search_stagings" model="ir.ui.view">
@@ -303,10 +300,10 @@
         <field name="name">Stagings Tree</field>
         <field name="model">runbot_merge.stagings</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="target"/>
                 <field name="state"/>
-            </tree>
+            </list>
         </field>
     </record>
     <record id="runbot_merge_form_stagings" model="ir.ui.view">
@@ -337,21 +334,21 @@
                         <page string="PRs">
                             <group string="Batches">
                                 <field name="batch_ids" colspan="4" nolabel="1" readonly="1">
-                                    <tree>
+                                    <list>
                                         <button type="object" name="get_formview_action" icon="fa-external-link" title="open batch"/>
                                         <field name="name"/>
                                         <field name="prs" widget="many2many_tags"/>
-                                    </tree>
+                                    </list>
                                 </field>
                             </group>
                             <group string="PRs">
                                 <field name="pr_ids" colspan="4" nolabel="1" readonly="1">
-                                    <tree>
+                                    <list>
                                         <button type="object" name="get_formview_action" icon="fa-external-link" title="open pr"/>
                                         <field name="display_name"/>
                                         <field name="github_url" widget="url"/>
                                         <field name="url" widget="url"/>
-                                    </tree>
+                                    </list>
                                 </field>
                             </group>
                         </page>
@@ -359,30 +356,30 @@
                             <group>
                                 <group string="Heads">
                                     <field name="head_ids" colspan="2" nolabel="1" readonly="1">
-                                        <tree>
+                                        <list>
                                             <button type="object" name="get_formview_action" icon="fa-external-link" title="open head"/>
                                             <field name="sha"/>
-                                        </tree>
+                                        </list>
                                     </field>
                                 </group>
                                 <group string="Commits">
                                     <field name="commit_ids" colspan="2" nolabel="1" readonly="1">
-                                        <tree>
+                                        <list>
                                             <button type="object" name="get_formview_action" icon="fa-external-link" title="open commit"/>
                                             <field name="sha"/>
-                                        </tree>
+                                        </list>
                                     </field>
                                 </group>
                             </group>
                         </page>
                         <page string="Splits">
                             <field name="child_ids" colspan="4" nolabel="1" readonly="1">
-                                <tree>
+                                <list>
                                     <button type="object" name="get_formview_action" icon="fa-external-link" title="open pr"/>
                                     <field name="display_name"/>
                                     <field name="state"/>
                                     <field name="reason"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                     </notebook>
@@ -394,7 +391,7 @@
     <record id="runbot_merge_action_commits" model="ir.actions.act_window">
         <field name="name">Commit Statuses</field>
         <field name="res_model">runbot_merge.commit</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
     <record id="runbot_merge_commits_search" model="ir.ui.view">
         <field name="name">commits search</field>
@@ -409,9 +406,9 @@
         <field name="name">commits list</field>
         <field name="model">runbot_merge.commit</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="sha"/>
-            </tree>
+            </list>
         </field>
     </record>
     <record id="runbot_merge_commits_form" model="ir.ui.view">
@@ -426,31 +423,31 @@
                     <field name="statuses" widget="json"/>
                     <separator string="Pull Requests"/>
                     <field name="pull_requests" nolabel="1">
-                        <tree>
+                        <list>
                             <button type="object" name="get_formview_action" icon="fa-external-link" title="open pr"/>
                             <field name="display_name"/>
                             <field name="state"/>
-                        </tree>
+                        </list>
                     </field>
                     <separator string="Stagings (commits)"/>
                     <field name="commit_ids" nolabel="1" readonly="1">
-                        <tree>
+                        <list>
                             <button type="object" name="get_formview_action" icon="fa-external-link" title="open commit"/>
                             <field name="target"/>
                             <field name="id"/>
                             <field name="staged_at"/>
                             <field name="state"/>
-                        </tree>
+                        </list>
                     </field>
                     <separator string="Stagings (heads)"/>
                     <field name="head_ids" nolabel="1" readonly="1">
-                        <tree>
+                        <list>
                             <button type="object" name="get_formview_action" icon="fa-external-link" title="open head"/>
                             <field name="target"/>
                             <field name="id"/>
                             <field name="staged_at"/>
                             <field name="state"/>
-                        </tree>
+                        </list>
                     </field>
                 </sheet>
             </form>

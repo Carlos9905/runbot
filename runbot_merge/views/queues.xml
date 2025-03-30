@@ -11,10 +11,10 @@
         <field name="name">Splits</field>
         <field name="model">runbot_merge.split</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="id"/>
                 <field name="target"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -26,12 +26,12 @@
         <field name="name">Feedback List</field>
         <field name="model">runbot_merge.pull_requests.feedback</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="repository"/>
                 <field name="pull_request"/>
                 <field name="message"/>
                 <field name="close"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -43,12 +43,12 @@
         <field name="name">Tagging</field>
         <field name="model">runbot_merge.pull_requests.tagging</field>
         <field name="arch" type="xml">
-            <tree editable="bottom">
+            <list editable="bottom">
                 <field name="repository"/>
                 <field name="pull_request"/>
                 <field name="tags_add"/>
                 <field name="tags_remove"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -74,10 +74,10 @@
         <field name="name">Fetches Tree</field>
         <field name="model">runbot_merge.fetch_job</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="repository"/>
                 <field name="number"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -100,11 +100,11 @@
         <field name="name">Patches List</field>
         <field name="model">runbot_merge.patch</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="id"/>
                 <field name="repository"/>
                 <field name="target"/>
-            </tree>
+            </list>
         </field>
     </record>
     <record id="form_patch" model="ir.ui.view">
@@ -145,9 +145,9 @@
                                 <separator string="message" cols="4"/>
                                 <field name="message" nolabel="1"/>
                                 <field name="file_ids" nolabel="1">
-                                    <tree>
+                                    <list>
                                         <field name="display_name" string="File Name"/>
-                                    </tree>
+                                    </list>
                                 </field>
                             </group>
                         </page>

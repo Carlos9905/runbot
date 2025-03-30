@@ -56,23 +56,23 @@
 
                     <separator string="Repositories"/>
                     <field name="repo_ids">
-                        <tree>
+                        <list>
                             <field name="sequence" widget="handle"/>
                             <button type="object" name="get_formview_action" icon="fa-external-link" title="open repo"/>
                             <field name="name"/>
-                            <field name="branch_filter"/>
+                            <!-- <field name="branch_filter"/> -->
                             <field name="status_ids" widget="many2many_tags"/>
-                        </tree>
+                        </list>
                     </field>
                     <separator string="Branches"/>
                     <field name="branch_ids">
-                        <tree editable="bottom" decoration-muted="not active">
+                        <list editable="bottom" decoration-muted="not active">
                             <field name="sequence" widget="handle" />
                             <button type="object" name="get_formview_action" icon="fa-external-link" title="open branch"/>
                             <field name="name"/>
                             <field name="active" widget="boolean_toggle"/>
                             <field name="staging_enabled" widget="boolean_toggle"/>
-                        </tree>
+                        </list>
                     </field>
                 </sheet>
             </form>

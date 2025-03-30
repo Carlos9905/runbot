@@ -17,7 +17,5 @@
         nota: even though this is only triggered, numbercall has to be
         non-zero because the counter is taken in account by cron triggers
         -->
-        <field name="numbercall">-1</field>
-        <field name="doall" eval="False"/>
     </record>
 </odoo>
